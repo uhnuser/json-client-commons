@@ -65,6 +65,10 @@ public class JsonClient extends Client {
 		super(url, clientId, pass, auditSourceId);
 	}
 
+	public JsonClient(String url) {
+		super(url);
+	}
+	
 	protected void setDefaultParams(BaseRequestParams params) {
 		params.setClientId(clientId);
 		params.setClientPass(pass);
