@@ -17,7 +17,7 @@ Extend `ca.uhn.model.json.BaseRequestParams` with a class containing the paramet
 ```java
 import ca.uhn.model.json.BaseRequestParams;
 
-public class MyParams extends BaseRequestParams {
+public class RequestParams extends BaseRequestParams {
   public String id;  
 }
 ```
@@ -50,7 +50,7 @@ public class MyClient extends JsonClient {
     }
     
     public getPerson(String id) throws Exception {
-      MyParams params = new MyParams();
+      RequestParams params = new RequestParams();
       params.id = id;      
       return callService(OPERATION, params, PERSON);
     }
