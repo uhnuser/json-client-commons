@@ -49,11 +49,48 @@ public class MyClient extends JsonClient {
       super(url);
     }
     
-    public getPerson(String id) throws Exception {
+    public Person getPerson(String id) throws Exception {
       RequestParams params = new RequestParams();
       params.id = id;      
       return callService(OPERATION, params, PERSON);
     }
+
+    public static void main(String[] args) throws Exception {
+  	  System.out.println(new MyClient("http://localhost:8080/test-service/json-service").getPerson("123"));
+	}
 }
 ```
+The client will generate the following JSON when callService executes:
+```javascript
+POST /test-service/json-service HTTP/1.1
+User-Agent: Jakarta Commons-HttpClient/3.1
+Host: localhost:8080
+Content-Length: 82
+Content-Type: application/json; charset=UTF-8
 
+{
+  "jsonrpc": "2.0",
+  "method": "getPerson",
+  "params": {
+    "id": "123"
+  }
+}
+```
+The service should reply with a response which looks like the following:
+```javascript
+HTTP/1.1 200 OK
+X-Powered-By: Servlet/2.5
+Server: Sun GlassFish Enterprise Server v2.1.1
+Content-Type: application/json;charset=ISO-8859-1
+Transfer-Encoding: chunked
+Date: Wed, 10 Oct 2012 20:59:36 GMT
+
+{
+  "jsonrpc": "2.0",
+  "result": {
+    "name": "John",
+    "height": 180,
+    "age": "Oct 10, 2012 04:59:36 PM"
+  }
+}
+```
