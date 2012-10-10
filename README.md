@@ -32,6 +32,8 @@ public class Person {
 }
 ```
 
+The client uses Google Gson library to serialize and deserialize classes. 
+
 Extend `ca.uhn.json.client.JsonClient` with your class
 
 ```java
@@ -94,3 +96,4 @@ Date: Wed, 10 Oct 2012 20:59:36 GMT
   }
 }
 ```
+note that dates are serialized using the following format: MMM dd, yyyy hh:mm:ss a 
