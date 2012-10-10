@@ -21,7 +21,7 @@ public class RequestParams extends BaseRequestParams {
   public String id;  
 }
 ```
-Create a bean into which the result will be deserialized
+Create a class into which the result will be deserialized
 ```java
 import java.util.Date;
 
