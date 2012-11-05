@@ -4,9 +4,13 @@ a library for creating JSON RPC clients in Java
 
 ## Installation
 
-The artifact can be installed using Maven
-```bash
-mvn install
+Artifact is provided as a Maven dependency
+```xml
+<dependency>
+	<groupId>ca.uhn.ws</groupId>
+	<artifactId>json-client-commons</artifactId>
+	<version>2.1</version>
+</dependency>
 ```
 
 ## Usage
